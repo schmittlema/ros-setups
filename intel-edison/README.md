@@ -126,7 +126,7 @@ As ROS packages for the Edison/Ubilinux don't exist we will have to build it fro
 A script has been writen to automate the building and installation of ROS. Current testing has been copy-pasting line by line to the console. Willing testers are encouraged to try out running the script:
 
 ```
-git clone https://github.com/UAVenture/ros-setups
+git clone https://github.com/pennaerial/ros-setups
 cd ros-setups/intel-edison/
 ./install_ros.sh
 ```
