@@ -31,8 +31,8 @@ echo "*** ROSDEP ***"
 sudo rosdep init
 rosdep update
 
-mkdir ~/ros_catkin_ws
-cd ~/ros_catkin_ws
+mkdir ~/catkin_ws
+cd ~/catkin_ws
 
 echo "*** rosinstall ***"
 #   This will install only mavros and not mavros-extras (no image
@@ -47,14 +47,14 @@ while [ $? != 0 ]; do
 done
 
 echo "*** Install cmake and update sources.list ***"
-mkdir ~/ros_catkin_ws/external_src
+mkdir ~/catkin_ws/external_src
 sudo apt-get -y install checkinstall cmake
 sudo sh -c 'echo "deb-src http://mirrordirector.raspbian.org/raspbian/ testing main contrib non-free rpi" >> /etc/apt/sources.list'
 sudo sh -c 'echo "deb http://http.debian.net/debian wheezy-backports main" >> /etc/apt/sources.list'
 sudo apt-get -y update
 
 echo "*** Install console bridge ***"
-cd ~/ros_catkin_ws/external_src
+cd ~/catkin_ws/external_src
 sudo apt-get -y build-dep console-bridge
 apt-get -y source -b console-bridge
 sudo dpkg -i libconsole-bridge0.2*.deb libconsole-bridge-dev*.deb
@@ -63,7 +63,7 @@ echo "*** Install liblz4-dev ***"
 sudo apt-get -y install liblz4-dev
 
 echo "*** rosdep install - Errors at the end are normal ***"
-cd ~/ros_catkin_ws
+cd ~/catkin_ws
 #  Python errors after the following command are normal.
 rosdep install --from-paths src --ignore-src --rosdistro indigo -y -r --os=debian:wheezy
 
@@ -80,10 +80,10 @@ echo "*** Updating .profile and .bashrc ***"
 echo "source /home/ros/indigo/setup.bash" >> ~/.profile
 source ~/.profile
 
-echo "source ~/ros_catkin_ws/devel_isolated/setup.bash" >> ~/.bashrc
+echo "source ~/catkin_ws/devel_isolated/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
-cd ~/ros_catkin_ws
+cd ~/catkin_ws
 
 echo ""
 echo "*** FINISHED! ***"
