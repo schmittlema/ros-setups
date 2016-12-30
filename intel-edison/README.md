@@ -119,6 +119,11 @@ apt-get -y install sudo less
 
 Login as px4 to continue.
 
+## Hosts file
+`vim /etc/hosts`
+Add this line:
+`127.0.0.1 ubilinux`
+
 # ROS/MAVROS Installation
 
 As ROS packages for the Edison/Ubilinux don't exist we will have to build it from source. This process will take about 1.5 hours but most of it is just waiting for it to build.
