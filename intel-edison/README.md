@@ -103,7 +103,7 @@ Update the `/etc/default/locale` file an ensure `LANG=en_US.UTF-8` then reboot.
 Note that if you receive warning messages about missing or wrong languages this is likely to be due to the locale being forwarded when using SSH. Either ignore them or complete this step via the serial console by commenting out the SendEnv LANG LC_* line in the local /etc/ssh/ssh_config file on your machine (not the Edison).
 
 ## Timezone
-`sudo dpkg-reconfigure tzdata`
+`dpkg-reconfigure tzdata`
 
 ## Tools
 ```
