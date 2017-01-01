@@ -92,14 +92,20 @@ cd ~/ros_catkin_ws
 #  Python errors after the following command are normal.
 rosdep install --from-paths src --ignore-src --rosdistro kinetic -y -r --os=debian:wheezy
 
-echo “******************************************************************”
-echo “About to start some heavy building. Go have a looong coffee break.”
-echo “******************************************************************”
-
 echo "*** Install catkin_tools ***"
 sudo apt-get install --reinstall python-setuptools
 sudo pip install --upgrade setuptools
 sudo pip install -U catkin_tools
+
+echo "*** Upgrading python imports. For some reason we need to do these when using mavros_extras? ***"
+sudo pip install future
+sudo apt-get install libxml2-dev libxslt1-dev
+echo "*** This will take a while ***"
+sudo pip install --upgrade lxml
+
+echo “******************************************************************”
+echo “About to start some heavy building. Go have a looong coffee break.”
+echo “******************************************************************”
 
 echo "*** Building ROS ***"
 catkin config --install-space /home/ros/kinetic
