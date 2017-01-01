@@ -53,7 +53,7 @@ tmpfs            481M  6.6M  474M   2% /tmp
 /dev/mmcblk0p10  1.3G  381M  910M  30% /home
 ```
 
-# Post Installation Steps
+# Pre-Installation Steps
 
 ## Freeing up Space on the Root Partition
 
