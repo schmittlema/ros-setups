@@ -37,8 +37,7 @@ mkdir ~/ros_catkin_ws
 cd ~/ros_catkin_ws
 
 echo "*** rosinstall ***"
-rosinstall_generator ros_comm mavros mavros_extras --rosdistro 
---deps --wet-only --exclude roslisp --tar > kinetic-ros_comm-wet.rosinstall
+rosinstall_generator ros_comm mavros mavros_extras --rosdistro kinetic --deps --wet-only --exclude roslisp --tar > kinetic-ros_comm-wet.rosinstall
 
 echo "*** wstool ***"
 sudo wstool init src -j1 kinetic-ros_comm-wet.rosinstall
