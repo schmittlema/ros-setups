@@ -104,7 +104,7 @@ read -n 1 -s
 echo "Press any key to continue"
 
 echo "*** Building ROS ***"
-catkin config --install-space --install-space /home/ros/kinetic
+catkin config --install-space /home/ros/kinetic
 catkin config --install
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 catkin build
