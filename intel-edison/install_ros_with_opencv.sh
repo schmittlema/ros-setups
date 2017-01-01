@@ -37,10 +37,11 @@ mkdir ~/ros_catkin_ws
 cd ~/ros_catkin_ws
 
 echo "*** rosinstall ***"
-rosinstall_generator ros_comm mavros mavros_extras --rosdistro indigo --deps --wet-only --exclude roslisp --tar > indigo-ros_comm-wet.rosinstall
+rosinstall_generator ros_comm mavros mavros_extras --rosdistro 
+--deps --wet-only --exclude roslisp --tar > kinetic-ros_comm-wet.rosinstall
 
 echo "*** wstool ***"
-sudo wstool init src -j1 indigo-ros_comm-wet.rosinstall
+sudo wstool init src -j1 kinetic-ros_comm-wet.rosinstall
 while [ $? != 0 ]; do
   echo "*** wstool - download failures, retrying ***"
   sudo wstool update -t src -j1
@@ -80,7 +81,8 @@ cd ~/ros_catkin_ws/external_src
 git clone https://github.com/Itseez/opencv.git
 mkdir opencv/release
 cd opencv/release
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D ENABLE_PRECOMPILED_HEADERS=OFF -D WITH_LIBV4L=ON -D WITH_V4L=ON -D CMAKE_INSTALL_PREFIX=/usr/local ..
+# cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
 make
 sudo checkinstall -y --pkgname libopencv-dev make install
 # < MAVROS extras deps
@@ -89,19 +91,24 @@ sudo checkinstall -y --pkgname libopencv-dev make install
 echo "*** rosdep install - Errors at the end are normal ***"
 cd ~/ros_catkin_ws
 #  Python errors after the following command are normal.
-rosdep install --from-paths src --ignore-src --rosdistro indigo -y -r --os=debian:wheezy
+rosdep install --from-paths src --ignore-src --rosdistro kinetic -y -r --os=debian:wheezy
 
 echo “******************************************************************”
 echo “About to start some heavy building. Go have a looong coffee break.”
 echo “******************************************************************”
 
+echo "*** Install catkin_tools ***"
+sudo pip install -U catkin_tools
+read -n 1 -s
+echo "Press any key to continue"
+
 echo "*** Building ROS ***"
-sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DMAVLINK_DIALECT=pixhawk --install-space /home/ros/indigo
+sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /home/ros/kinetic
 
 sudo ln -sf /home/ros /opt/
 
 echo "*** Updating .profile and .bashrc ***"
-echo "source /home/ros/indigo/setup.bash" >> ~/.profile
+echo "source /home/ros/kinetic/setup.bash" >> ~/.profile
 source ~/.profile
 
 echo "source ~/ros_catkin_ws/devel_isolated/setup.bash" >> ~/.bashrc
