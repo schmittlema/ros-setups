@@ -105,7 +105,7 @@ echo "*** Building ROS ***"
 catkin config --install-space /home/ros/kinetic
 catkin config --install
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
-catkin build
+sudo catkin build
 # sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /home/ros/kinetic
 
 sudo ln -sf /home/ros /opt/
