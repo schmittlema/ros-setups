@@ -100,8 +100,6 @@ echo "*** Install catkin_tools ***"
 sudo apt-get install --reinstall python-setuptools
 sudo pip install --upgrade setuptools
 sudo pip install -U catkin_tools
-read -n 1 -s
-echo "Press any key to continue"
 
 echo "*** Building ROS ***"
 catkin config --install-space /home/ros/kinetic
