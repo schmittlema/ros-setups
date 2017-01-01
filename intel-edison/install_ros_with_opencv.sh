@@ -114,7 +114,7 @@ echo "*** Updating .profile and .bashrc ***"
 echo "source /home/ros/kinetic/setup.bash" >> ~/.profile
 source ~/.profile
 
-echo "source ~/ros_catkin_ws/devel_isolated/setup.bash" >> ~/.bashrc
+echo "source ~/ros_catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 cd ~/ros_catkin_ws
