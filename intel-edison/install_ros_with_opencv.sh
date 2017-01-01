@@ -97,12 +97,18 @@ echo “About to start some heavy building. Go have a looong coffee break.”
 echo “******************************************************************”
 
 echo "*** Install catkin_tools ***"
+sudo apt-get install --reinstall python-setuptools
+sudo pip install --upgrade setuptools
 sudo pip install -U catkin_tools
 read -n 1 -s
 echo "Press any key to continue"
 
 echo "*** Building ROS ***"
-sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /home/ros/kinetic
+catkin config --install-space --install-space /home/ros/kinetic
+catkin config --install
+catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+catkin build
+# sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /home/ros/kinetic
 
 sudo ln -sf /home/ros /opt/
 
