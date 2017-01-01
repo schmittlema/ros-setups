@@ -62,7 +62,7 @@ You will need more space on the root partition. Run the following commands:
 `mv /var/cache /home/`
 `ln -s /home/cache /var/cache`
 
-Add the following to the file /etc/dpkg/dpkg.conf.d/01_nodoc to prevent installing docs, locales and man pages.
+Add the following to the file `/etc/dpkg/dpkg.conf.d/01_nodoc` to prevent installing docs, locales and man pages.
 ```
 # /etc/dpkg/dpkg.conf.d/01_nodoc
 
