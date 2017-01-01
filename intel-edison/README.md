@@ -165,6 +165,16 @@ Launch the demo by running:
 
 and once it is running activate offboard control on your RC transmitter.
 
+# Post-Installation Tips
+
+## Mounting the Edison Mass Storage Partition within Ubilinux
+If you need to transfer files between your computer and the Intel Edison, you can also mount the mass storage partition within Ubilinux. It will be accessible by both systems concurrently. Run the following:
+
+```
+sudo mkdir /edison
+sudo mount -t vfat /dev/mmcblk0p9 /edison
+```
+
 ## Freeing up Space on the Root Partition
 
 Once again we will remove unneeded files from the root partition. You can delete the files in root's home directory (that's /root) or move them to the home partition.
