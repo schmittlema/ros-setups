@@ -62,6 +62,21 @@ You will need more space on the root partition. Run the following commands:
 `mv /var/cache /home/`
 `ln -s /home/cache /var/cache`
 
+Add the following to the file /etc/dpkg/dpkg.conf.d/01_nodoc to prevent installing docs, locales and man pages.
+```
+# /etc/dpkg/dpkg.conf.d/01_nodoc
+
+# Delete locales
+path-exclude=/usr/share/locale/*
+
+# Delete man pages
+path-exclude=/usr/share/man/*
+
+# Delete docs
+path-exclude=/usr/share/doc/*
+path-include=/usr/share/doc/*/copyright
+```
+
 ## Wifi
 Run `wpa_passphrase your-ssid your-wifi-password` to generate pka.
 `cd /etc/network`
