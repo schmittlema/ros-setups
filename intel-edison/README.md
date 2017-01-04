@@ -1,5 +1,9 @@
 # Intel Edison Setup
 
+# Disclaimer
+
+We do not support this install script and are unable to respond to all queries. Installation is at your own risk and may involve unstable packages. Having said that though, if you figure out any bugs, enhancements or suggestions, you're encouraged to submit a pull request or contact us.
+
 # Before you Start
 
 Before starting with the installation it's a good idea to boot the Edison straight out of the box to make sure it's working. This way we can make sure we have a functional board before proceeding and we won't be mistakenly blaming setup issues if something is wrong here.
@@ -139,19 +143,60 @@ Login as px4 to continue.
 Add this line:
 `127.0.0.1 ubilinux`
 
+# Upgrade Debian 7 Wheezy to 8 Jessie
+
+To avoid build issues, these install script depend on Debian Jessie. You can use Jubilinux (at your own risk), or, to upgrade the Debian base in Ubilinux to Jessie, do the following:
+
+1. `sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade`
+2. `vim /etc/apt/sources.list` Replace every `Wheezy` with `Jessie`. Comment out the line `#deb http://ubilinux.org/edison wheezy main`. Your sources.list file should look like this:
+```
+deb http://http.debian.net/debian jessie main contrib non-free
+#deb-src http://http.debian.net/debian jessie main contrib non-free
+
+deb http://http.debian.net/debian jessie-updates main contrib non-free
+#deb-src http://http.debian.net/debian jessie-updates main contrib non-free
+
+deb http://security.debian.org/ jessie/updates main contrib non-free
+#deb-src http://security.debian.org/ jessie/updates main contrib non-free
+
+#deb http://ubilinux.org/edison jessie main
+
+deb http://http.debian.net/debian jessie-backports main
+
+#deb http://http.debian.net/debian stretch main contrib non-free
+```
+3. `sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade`
+4. To save space:
+```
+sudo apt-get clean
+sudo rm -r /var/lib/apt/lists/*
+sudo apt-get update
+```
+5. Make sure you have a serial connection through USB and reboot.
+
+6. On reboot, press enter to stop the usual boot process and set the following settings in U-Boot:
+```
+setenv bootargs_target multi-user
+saveenv
+```
+
 # ROS/MAVROS Installation
 
 As ROS packages for the Edison/Ubilinux don't exist we will have to build it from source. This process will take about 1.5 hours but most of it is just waiting for it to build.
 
-A script has been writen to automate the building and installation of ROS. Current testing has been copy-pasting line by line to the console. Willing testers are encouraged to try out running the script:
+A script has been writen to automate the building and installation of ROS, MAVROS and MAVROS_EXTRAS. Current testing has been copy-pasting line by line to the console. Willing testers are encouraged to try out running the script:
 
 ```
 git clone https://github.com/pennaerial/ros-setups
 cd ros-setups/intel-edison/
-./install_ros.sh
+./install_kinetic_mavros.sh
 ```
 
 If all went well you should have a ROS installtion. Hook your Edison up to the Pixhawk and run a test. See this page for instructions: https://pixhawk.org/peripherals/onboard_computers/intel_edison
+
+## Known issues
+
+Currently only the install_kinetic_mavros.sh script has had success, installing indigo works on a clean image of Ubilinux Wheezy, but without mavros_extras due to compilation errors in cv_bridge.
 
 # Python Flight App
 
