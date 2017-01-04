@@ -41,10 +41,7 @@ while [ $? != 0 ]; do
   sudo wstool update -t src -j1
 done
 
-deps
 ###############
-read -p "Opencv done. Press any key to continue... " -n1 -s
-
 echo "*** rosdep install - Errors at the end may or may not be normal ***"
 cd ~/ros_catkin_ws
 #  Python errors after the following command are normal.
@@ -55,8 +52,6 @@ read -p "Check above if there were any rosdep errors. Exit script and proceed ma
 echo "*** Install catkin_tools ***"
 sudo apt-get install python-catkin-tools
 # sudo apt-get install python-psutil
-
-read -p "catkin_tools done. Press any key to continue with heavy building..." -n1 -s
 
 # echo "*** Upgrading python imports. For some reason we need to do these when using mavros_extras? ***"
 # sudo pip install future
