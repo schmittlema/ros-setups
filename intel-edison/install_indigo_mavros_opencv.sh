@@ -68,7 +68,7 @@ catkin config --install-space /home/ros/indigo
 catkin config --install
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 echo "This will take several hours..."
-sudo catkin build
+sudo catkin build -j1
 # sudo catkin build --mem-limit 50%
 # sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /home/ros/indigo
 
