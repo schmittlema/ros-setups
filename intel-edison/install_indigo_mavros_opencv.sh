@@ -76,11 +76,13 @@ read -p "ROS built. Press any key to continue..." -n1 -s
 
 sudo ln -sf /home/ros /opt/
 
-echo "*** Updating .profile and .bashrc ***"
-echo "source /home/ros/indigo/setup.bash" >> ~/.profile
-source ~/.profile
+# echo "*** Updating .profile and .bashrc ***"
+echo "*** Updating .bashrc ***"
+# echo "source /home/ros/indigo/setup.bash" >> ~/.profile
+# source ~/.profile
 
-echo "source ~/ros_catkin_ws/devel/setup.bash" >> ~/.bashrc
+# echo "source ~/ros_catkin_ws/devel/setup.bash" >> ~/.bashrc
+echo "source /home/ros/indigo/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 cd ~/ros_catkin_ws
