@@ -22,7 +22,7 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 
 echo "*** Install required OS packages ***"
-sudo apt-get install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential
+sudo apt-get -y install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential
 
 echo "*** ROSDEP ***"
 sudo rosdep init
@@ -50,7 +50,7 @@ rosdep install --from-paths src --ignore-src --rosdistro kinetic -y --os=debian:
 read -p "Check above if there were any rosdep errors. Exit script and proceed manually if there were." -n1 -s
 
 echo "*** Install catkin_tools ***"
-sudo apt-get install python-catkin-tools
+sudo apt-get -y install python-catkin-tools
 # sudo apt-get install python-psutil
 
 # echo "*** Upgrading python imports. For some reason we need to do these when using mavros_extras? ***"
