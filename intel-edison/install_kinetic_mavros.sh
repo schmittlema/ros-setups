@@ -45,9 +45,9 @@ done
 echo "*** rosdep install - Errors at the end may or may not be normal ***"
 cd ~/ros_catkin_ws
 #  Python errors after the following command are normal.
-rosdep install --from-paths src --ignore-src --rosdistro kinetic -y --os=debian:jessie
+rosdep install --from-paths src --ignore-src --rosdistro kinetic -y -q -r --os=debian:jessie
 
-read -p "Check above if there were any rosdep errors. Exit script and proceed manually if there were." -n1 -s
+# read -p "Check above if there were any rosdep errors. Exit script and proceed manually if there were." -n1 -s
 
 echo "*** Install catkin_tools ***"
 sudo apt-get -y install python-catkin-tools
@@ -82,7 +82,7 @@ echo "*** Updating .bashrc ***"
 # source ~/.profile
 
 # echo "source ~/ros_catkin_ws/devel/setup.bash" >> ~/.bashrc
-echo "source /home/ros/indigo/setup.bash" >> ~/.bashrc
+echo "source /home/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 cd ~/ros_catkin_ws
