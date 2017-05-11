@@ -35,6 +35,5 @@ cd Firmware
 git submodule update --init --recursive
 cd Tools/sitl_gazebo
 git pull origin master
-cd ~
-echo "now type the following at the command prompt:"
-echo "cd ~/src/Firmware/ && make posix_sitl_default gazebo"
+cd ~/src/Firmware/
+make posix_sitl_default
