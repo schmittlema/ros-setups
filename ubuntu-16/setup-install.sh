@@ -6,13 +6,13 @@ export DEBIAN_FRONTEND=noninteractive
 usermod -a -G dialout $USER
 
 add-apt-repository ppa:george-edison55/cmake-3.x -y
-apt-get update && sudo apt-get upgrade
+apt-get update && apt-get upgrade
 apt-get -q -y install cmake vim -y
 apt-get -q -y install ant protobuf-compiler libeigen3-dev libopencv-dev
 apt-get -q -y install python-argparse git-core wget zip python-empy qtcreator cmake build-essential genromfs -y
 sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-apt-get update && sudo apt-get upgrade
+wget http://packages.osrfoundation.org/gazebo.key -O - | apt-key add -
+apt-get update && apt-get upgrade
 # sudo apt-get install libignition-common-dev
 apt-get -y install gazebo7
 apt-get -y install libgazebo7-dev
