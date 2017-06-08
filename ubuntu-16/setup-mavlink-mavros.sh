@@ -7,7 +7,7 @@ rosinstall_generator --rosdistro kinetic --upstream-development mavros | tee /tm
 rosinstall_generator --rosdistro kinetic mavlink | tee -a /tmp/mavros.rosinstall
 wstool merge -t src /tmp/mavros.rosinstall
 wstool update -t src
-rosdep install --from-paths src --ignore-src --rosdistro kinetic -y
+rosdep install --from-paths src --ignore-src --rosdistro kinetic -y --as-root apt:false
 cd ~/catkin_ws/src/
 ln -s ~/src/Firmware/
 ln -s ~/src/Firmware/Tools/sitl_gazebo/
