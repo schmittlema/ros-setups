@@ -6,5 +6,3 @@ apt-get -y install ros-kinetic-gazebo-ros-pkgs
 rosdep init
 rosdep update
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-apt-get install libignition-math2-dev
-catkin build
