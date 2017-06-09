@@ -37,3 +37,6 @@ cd Tools/sitl_gazebo
 git pull origin master
 cd ~/src/Firmware/
 make posix_sitl_default
+
+apt-get install libignition-math2-dev
+/bin/bash -c ". /opt/ros/kinetic/setup.bash; . ~/.bashrc ; catkin build"
