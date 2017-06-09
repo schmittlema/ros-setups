@@ -45,6 +45,6 @@ cd ~
 git clone https://github.com/openai/gym
 cd gym
 pip install -e . # minimal install
-
+pip install opencv-python
 cd ~
 git clone https://github.com/schmittlema/UAV-NAV.git
