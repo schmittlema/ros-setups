@@ -6,4 +6,3 @@ apt-get -y install ros-kinetic-gazebo-ros-pkgs
 rosdep init
 rosdep update
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-/bin/bash -c "source ~/.bashrc"
