@@ -1,6 +1,5 @@
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
-bash /opt/ros/kinetic/setup.bash
 apt-get -y install python-wstool python-rosinstall-generator python-catkin-tools 
 wstool init ~/catkin_ws/src
 rosinstall_generator --rosdistro kinetic --upstream-development mavros | tee /tmp/mavros.rosinstall
@@ -12,6 +11,5 @@ cd ~/catkin_ws/src/
 ln -s ~/src/Firmware/
 ln -s ~/src/Firmware/Tools/sitl_gazebo/
 cd ..
-catkin build 
-bash ~/catkin_ws/devel/setup.bash
+/bin/bash -c ". /opt/ros/kinetic/setup.bash; catkin build; . ~/catkin_ws/devel/setup.bash"
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
