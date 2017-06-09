@@ -13,4 +13,5 @@ ln -s ~/src/Firmware/
 ln -s ~/src/Firmware/Tools/sitl_gazebo/
 cd ..
 catkin build 
+/bin/bash -c "source ~/catkin_ws/devel/setup.bash"
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
