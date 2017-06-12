@@ -41,10 +41,10 @@ make posix_sitl_default
 apt-get install libignition-math2-dev
 /bin/bash -c ". /opt/ros/kinetic/setup.bash; . ~/.bashrc ; catkin build"
 
-cd ~
-git clone https://github.com/openai/gym
-cd gym
-pip install -e . # minimal install
+cd ~ && git clone https://github.com/openai/gym 
+cd gym && pip install -e . # minimal install
 pip install opencv-python
-cd ~
-git clone https://github.com/schmittlema/UAV-NAV.git
+
+apt-get install -y python-rospy python-genpy python-roslib
+
+cd ~ &&git clone https://github.com/schmittlema/UAV-NAV.git
