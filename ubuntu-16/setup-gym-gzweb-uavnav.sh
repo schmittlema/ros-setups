@@ -1,8 +1,9 @@
+apt-get install python-pip
 cd ~ && git clone https://github.com/openai/gym 
 cd gym && pip install -e . # minimal install
 pip install opencv-python
 
-apt-get install -y python-rospy python-genpy python-roslib
+apt-get install -y python-rospy python-genpy
 
 apt-get update && apt-get upgrade -q -y && apt-get install -q -y \
     build-essential \
@@ -21,7 +22,7 @@ apt-get update && apt-get upgrade -q -y && apt-get install -q -y \
 && rm -rf /var/lib/apt/lists/*
 
 cd ~; hg clone https://bitbucket.org/osrf/gzweb
-RUN cd ~/gzweb \
+cd ~/gzweb \
     && hg up default \
 && ./deploy.sh -m
 
