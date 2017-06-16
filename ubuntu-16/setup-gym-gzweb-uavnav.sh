@@ -19,11 +19,19 @@ apt-get update && apt-get upgrade -q -y && apt-get install -q -y \
     npm \
     pkg-config \
     psmisc\
-&& rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
+    
+# install gazebo packages
+RUN apt-get install -q -y \
+    libgazebo7-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-cd ~; hg clone https://bitbucket.org/osrf/gzweb
+cd ~; hg clone https://bitbucket.org/osrf/gzweb ~/gzweb
 cd ~/gzweb \
     && hg up default \
-&& ./deploy.sh -m
+    && ./deploy.sh -m
+    
+mkdir /root/gzweb/http/client/assets
+cd /root/gzweb && ./deploy.sh -m -t
 
-cd ~ &&git clone https://github.com/schmittlema/UAV-NAV.git
+cd ~ && git clone https://github.com/schmittlema/UAV-NAV.git
