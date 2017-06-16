@@ -25,7 +25,7 @@ add-apt-repository ppa:team-gcc-arm-embedded/ppa
 apt-get update -y
 apt-get -q -y install python-serial openocd flex bison libncurses5-dev autoconf texinfo build-essential \
     libftdi-dev libtool zlib1g-dev \
-    python-empy gcc-arm-embedded -y
+    python-empy gcc-arm-embedded
 
 cd ~
 mkdir src 
