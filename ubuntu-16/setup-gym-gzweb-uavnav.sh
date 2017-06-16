@@ -29,9 +29,9 @@ apt-get install -q -y \
 cd ~; hg clone https://bitbucket.org/osrf/gzweb ~/gzweb
 cd ~/gzweb \
     && hg up default \
-    && ./deploy.sh -m
+    && bash -c " . /usr/share/gazebo/setup.sh; ./deploy.sh -m"
     
 mkdir /root/gzweb/http/client/assets
-cd /root/gzweb && ./deploy.sh -m -t
+cd /root/gzweb && bash -c "./deploy.sh -m -t"
 
 cd ~ && git clone https://github.com/schmittlema/UAV-NAV.git
