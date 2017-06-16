@@ -16,7 +16,6 @@ curl -sL https://deb.nodesource.com/setup | bash - \
     libtinyxml-dev \
     mercurial \
     nodejs \
-    nodejs-legacy \
     npm \
     pkg-config \
     psmisc\
