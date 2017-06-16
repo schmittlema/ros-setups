@@ -22,7 +22,7 @@ apt-get update && apt-get upgrade -q -y && apt-get install -q -y \
     && rm -rf /var/lib/apt/lists/*
     
 # install gazebo packages
-RUN apt-get install -q -y \
+apt-get install -q -y \
     libgazebo7-dev \
     && rm -rf /var/lib/apt/lists/*
 
