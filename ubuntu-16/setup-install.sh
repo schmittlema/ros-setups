@@ -19,7 +19,7 @@ apt-get -y install libgazebo7-dev
 
 echo "export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$HOME/src/Firmware/Tools/sitl_gazebo/Build" >> ~/.bashrc
 echo "export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:$HOME/src/Firmware/Tools/sitl_gazebo/models" >> ~/.bashrc
-echo "export GAZEBO_RESOURCE_PATH=${GAZEBO_MODEL_PATH}:$HOME/src/Firmware/Tools/sitl_gazebo/media" >> ~/.bashrc
+echo "export GAZEBO_RESOURCE_PATH=${GAZEBO_MODEL_PATH}:$HOME/src/Firmware/Tools/sitl_gazebo" >> ~/.bashrc
 apt-get remove -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
 add-apt-repository ppa:team-gcc-arm-embedded/ppa
 apt-get update -y
