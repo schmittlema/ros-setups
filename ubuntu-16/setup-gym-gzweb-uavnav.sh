@@ -35,3 +35,4 @@ mkdir /root/gzweb/http/client/assets
 cd /root/gzweb && bash -c "./deploy.sh -m -t"
 
 cd ~ && git clone https://github.com/schmittlema/UAV-NAV.git
+cd ~/UAV-NAV/GYM/env/launch/ && cp posix_sitl.launch ~/src/Firmware/launch/
