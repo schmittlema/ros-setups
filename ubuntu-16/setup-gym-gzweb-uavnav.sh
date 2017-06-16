@@ -5,6 +5,12 @@ pip install opencv-python
 
 apt-get install -y python-rospy python-genpy
 
+apt-get install wget build-essential \
+    && wget http://nodejs.org/dist/v0.10.25/node-v0.10.25.tar.gz \
+    && tar -xvf node-v0.10.25.tar.gz \
+    && cd node-v0.10.25 \
+    && ./configure && make && make install
+
 curl -sL https://deb.nodesource.com/setup | bash - \
 && apt-get update && apt-get upgrade -q -y && apt-get install -q -y \
     build-essential \
@@ -15,7 +21,6 @@ curl -sL https://deb.nodesource.com/setup | bash - \
     libjansson-dev \
     libtinyxml-dev \
     mercurial \
-    nodejs \
     npm \
     pkg-config \
     psmisc\
