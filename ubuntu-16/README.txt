@@ -1,5 +1,5 @@
 Starting with a clean Ubuntu install:
-1. sudo apt-get install git
+1. sudo apt-get update && apt-get install -y git
 2. git clone https://github.com/schmittlema/ros-setups.git
 3. cd ros-setups/ubuntu-16
 4. ./setup-ros.sh
