@@ -1,4 +1,4 @@
-apt-get install python-pip
+apt-get install -y python-pip
 cd ~ && git clone https://github.com/openai/gym 
 cd gym && pip install -e . # minimal install
 pip install opencv-python
