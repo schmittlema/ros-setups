@@ -5,7 +5,8 @@ pip install opencv-python
 
 apt-get install -y python-rospy python-genpy
 
-apt-get update && apt-get upgrade -q -y && apt-get install -q -y \
+curl -sL https://deb.nodesource.com/setup | bash - \
+&& apt-get update && apt-get upgrade -q -y && apt-get install -q -y \
     build-essential \
     cmake \
     imagemagick \
