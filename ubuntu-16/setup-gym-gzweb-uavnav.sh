@@ -39,7 +39,7 @@ cd ~/gzweb \
     && bash -c " . /usr/share/gazebo/setup.sh; ./deploy.sh -m"
     
 mkdir /root/gzweb/http/client/assets
-cd /root/gzweb && bash -c "./deploy.sh -m -t"
+cd /root/gzweb && bash -c "./deploy.sh -m local"
 
 cd ~ && git clone https://github.com/schmittlema/UAV-NAV.git
 cd ~/UAV-NAV/GYM/env/launch/ && cp posix_sitl.launch ~/src/Firmware/launch/
