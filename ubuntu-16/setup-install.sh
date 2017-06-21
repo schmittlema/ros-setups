@@ -32,7 +32,7 @@ mkdir src
 cd src 
 git clone https://github.com/darknight-007/Firmware
 cd Firmware
-git submodule update --init --recursive  -f
+git submodule update --init --recursive -f
 cd Tools/sitl_gazebo
 git pull origin master
 cd ~/src/Firmware/
