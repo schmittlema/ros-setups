@@ -4,7 +4,7 @@
 
 export DEBIAN_FRONTEND=noninteractive
 usermod -a -G dialout $USER
-
+apt-get install software-properties-common python-software-properties
 add-apt-repository ppa:george-edison55/cmake-3.x -y
 apt-get update && apt-get upgrade -y
 apt-get -q -y install cmake vim -y
