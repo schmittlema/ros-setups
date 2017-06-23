@@ -26,6 +26,7 @@ curl -sL https://deb.nodesource.com/setup | bash - \
     npm \
     pkg-config \
     psmisc\
+    sed \
     && rm -rf /var/lib/apt/lists/*
     
 # install gazebo packages
@@ -36,8 +37,7 @@ apt-get install -q -y \
 cd ~; hg clone https://bitbucket.org/osrf/gzweb ~/gzweb
 cd ~/gzweb \
     && hg up default \
-    && bash -c " . /usr/share/gazebo/setup.sh; ./deploy.sh -m"
     
 mkdir /root/gzweb/http/client/assets
-cd /root/gzweb && bash -c "./deploy.sh -m local"
+cd /root/gzweb && bash -c ". /usr/share/gazebo/setup.sh; ./deploy.sh -m local"
 
