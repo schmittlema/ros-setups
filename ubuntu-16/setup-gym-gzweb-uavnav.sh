@@ -41,5 +41,5 @@ cd ~/gzweb \
     
 mkdir /root/gzweb/http/client/assets
 cd /root/gzweb && bash -c ". /usr/share/gazebo/setup.sh; ./deploy.sh -m local"
-cd /ros-setups/ubuntu-16 && tar xfpz GeographicLib-1.48.tar.gz && cd GeographicLib-1.48 && mkdir BUILD && cd BUILD && ../configure && make && make install PREFIX=/usr/shar/GeographicLib
+cd /ros-setups/ubuntu-16 && tar xfpz GeographicLib-1.48.tar.gz && cd GeographicLib-1.48 && mkdir BUILD && cd BUILD && ../configure && cd .. && make && make install PREFIX=/usr/shar/GeographicLib
 
